@@ -1,0 +1,31 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1" aria-expanded="false" aria-expanded="navbar">
+        <span class="sr-only">Toggel Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div style="margin-left:5px;margin-top:2px;" class="outer navbar-left collapsed">
+        <div class="middle">
+          <div class="inner">
+              Cloud Console
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="navbar-1" class="collapse navbar-collapse">
+
+      <ul class="nav navbar-nav navbar-left">
+        <li routerLinkActive="active"><a [routerLink]="['/dash']">Dashboard</a></li>
+        <!-- <li><a [routerLink]="['/history']" routerLinkActive="active">历史数据</a></li> -->
+      </ul>  
+      <ul class="nav navbar-nav navbar-right">
+          <!-- <li><a [routerLink]="['/questions']" routerLinkActive="active"><i class="fa fa-comments" title="建议反馈" aria-hidden="true"></i></a></li> -->
+          <!-- <li *ngIf="showBiddingInfo"><a [routerLink]="['/bidding-info']" routerLinkActive="active">投标信息</a></li> -->
+      </ul>  
+    </div>
+  </div>
+</nav>

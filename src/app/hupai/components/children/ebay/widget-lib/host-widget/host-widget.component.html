@@ -1,0 +1,12 @@
+<table class="table table-hover">
+<tr>
+  <th>#</th>
+  <th>Host name</th>
+  <th>Location</th>
+</tr>
+<tr *ngFor="let host of hosts; let i = index;">
+  <td>{{i + 1}}</td>
+  <td>{{host.name}}</td>
+  <td>{{host.location}}</td>
+</tr>
+</table>

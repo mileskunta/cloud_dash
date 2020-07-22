@@ -1,0 +1,24 @@
+<div style="height:10px;"></div>
+
+<div class="row">
+  <button class="btn btn-primary float-right col-md-1 col-md-offset-11" style="width:80px;" *ngIf="!editing" (click)="editing = !editing">Custom</button>
+  <button class="btn btn-success float-right col-md-1 col-md-offset-11" style="width:80px;" *ngIf="editing" (click)="editing = !editing">Done</button>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-6 col-md-6 col-lg-6">
+    <bs-sortable [(ngModel)]="leftWidgets" [itemTemplate]="template" itemClass="sortable-item"
+      itemActiveClass="sortable-item-active" placeholderItem="Drag and drop here" placeholderClass="placeholderStyle"
+      wrapperClass="sortable-wrapper"></bs-sortable>
+  </div>
+
+  <div class="col-xs-6 col-6 col-md-6 col-lg-6">
+    <bs-sortable [(ngModel)]="rightWidgets" [itemTemplate]="template" itemClass="sortable-item"
+      itemActiveClass="sortable-item-active" placeholderItem="Drag and drop here" placeholderClass="placeholderStyle"
+      wrapperClass="sortable-wrapper"></bs-sortable>
+  </div>
+</div>
+
+<ng-template #template let-item="item" let-index="index">
+  <app-widget *ngIf="editing || !item.value.hidden" [editing]="editing" [widgetCfg]="item.value"></app-widget>
+</ng-template>

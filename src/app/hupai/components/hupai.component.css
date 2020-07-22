@@ -1,0 +1,25 @@
+.hupai-container{
+    position:relative;
+}
+
+.hupai-nav{
+    position:absolute;
+    left:0px;
+    top:10px;
+    width:150px;
+}
+.hupai-nav-a.active{
+    color: #fff;
+    background-color: #337ab7;
+}
+
+.hupai-content-wrapper{
+    padding-left:170px;
+    margin-bottom:20px;
+}
+.hupai-content{
+    border: 1px solid #CBCBCB;
+    border-top: 9px solid #FF6632;
+    margin-top: 10px;
+    padding:5px 10px 20px;
+}

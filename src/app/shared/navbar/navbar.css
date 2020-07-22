@@ -1,0 +1,54 @@
+.outer{
+    background-color: #005ca2;
+    /* height: 60px; */
+    border-radius: 3px;
+    padding: 1px 2px;
+    width:175px;
+}
+
+.middle{
+    background-color: white;
+    padding: 2px;
+    border-radius: 2px;
+}
+.inner{
+    background-color: #005ca2;
+    position: relative;
+    border-radius: 3px;
+    padding: 5px 5px;
+    color: white;
+    font-size: 23px;
+    text-align: center;
+}
+.number{
+    height: 30px;
+    position: relative;
+    margin: 0 -2px;
+}
+.hu{
+    width: 22px;
+    position: relative;
+    top: -1px;
+}
+
+.hu_word{
+    color: white;
+    font-weight: bold;
+    font-family: initial;
+    font-size: 18px;
+    position: relative;
+    top: 3px;
+}
+
+.button{
+    position: absolute;
+    width: 6px;
+    height: 3px;
+    background-color: #dedede;
+    z-index: 3;
+    border-radius: 3px;
+}
+.top-left-btn{top:2px;left:38px;}
+.top-right-btn{top:2px;right:38px;}
+.bottom-left-btn{bottom:3px;left:39px;}
+.bottom-right-btn{bottom:3px;right:39px;}

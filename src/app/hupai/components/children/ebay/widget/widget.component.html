@@ -1,0 +1,32 @@
+<div class="panel panel-{{widgetCfg.severity}}" [class.invisiable]="widgetCfg.hidden">
+  <div class="panel-heading">
+    <ng-container [ngSwitch]="widgetCfg.contentSelector">
+      <h4 *ngSwitchCase="'host'">Host Summary</h4>
+      <h4 *ngSwitchCase="'getStart'">Get Started</h4>
+      <h4 *ngSwitchCase="'db'">My DBs</h4>
+      <h4 *ngSwitchCase="'doc'">Ducument</h4>
+      <h4 *ngSwitchCase="'domain'">Domain</h4>
+      <h4 *ngSwitchCase="'api'">API</h4>
+      <h4 *ngSwitchCase="'monitor'">Monitor</h4>
+      <h4 *ngSwitchCase="'error'">Error</h4>
+    </ng-container>
+    <div class="toggle-container">
+      <i *ngIf="editing" (click)="setStyle()" class="fa fa-gear"></i>
+      <i *ngIf="!editing" (click)="widgetCfg.hidden = !widgetCfg.hidden" title="hide this component" class="fa fa-eye-slash"></i>
+      <i *ngIf="editing && widgetCfg.hidden" (click)="widgetCfg.hidden = !widgetCfg.hidden" class="fa fa-toggle-off"></i>
+      <i *ngIf="editing && !widgetCfg.hidden" (click)="widgetCfg.hidden = !widgetCfg.hidden" class="fa fa-toggle-on"></i>
+    </div>
+  </div>
+  <div class="panel-body" >
+    <div [ngSwitch]="widgetCfg.contentSelector">
+      <div app-host-widget *ngSwitchCase="'host'"></div>
+      <div app-get-start-widget *ngSwitchCase="'getStart'"></div>
+      <div app-db-widget *ngSwitchCase="'db'"></div>
+      <div app-doc-widget *ngSwitchCase="'doc'"></div>
+      <div app-api-widget *ngSwitchCase="'api'"></div>
+      <div app-domain-widget *ngSwitchCase="'domain'"></div>
+      <div app-monitor-widget *ngSwitchCase="'monitor'"></div>
+      <div app-error-widget *ngSwitchCase="'error'"></div>
+    </div>
+  </div>
+</div>

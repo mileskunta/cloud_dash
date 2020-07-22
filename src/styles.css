@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+.pagination>li>a, .pagination>li>span {
+    padding:3px 8px !important;
+}
+
+a{
+
+    text-indent: 0;
+}
+
+
+
+.ez-hupai .carousel-indicators li {
+    display: inline-block;
+    width: 30px;
+    height: 4px;
+    margin: 0 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: rgba(255,255,255,.5);
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 0px;
+}
+
+.ez-hupai .carousel-indicators .active {
+    /* width: 25px;
+    height: 5px; */
+    margin: 0 3px;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.sortable-wrapper{
+    padding: 5px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-top: 20px;
+}

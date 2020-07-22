@@ -1,0 +1,12 @@
+<table class="table table-hover">
+  <tr>
+    <th>#</th>
+    <th>DB name</th>
+    <th>Type</th>
+  </tr>
+  <tr *ngFor="let db of dbs; let i = index;">
+    <td>{{i + 1}}</td>
+    <td>{{db.name}}</td>
+    <td>{{db.type}}</td>
+  </tr>
+  </table>
