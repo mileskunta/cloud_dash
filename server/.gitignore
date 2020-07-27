@@ -1,0 +1,12 @@
+*.class
+*.lib
+.idea/*
+.settings/*
+classes/*
+target/*
+web/*
+out/*
+*.iml
+.classpath
+.project
+
