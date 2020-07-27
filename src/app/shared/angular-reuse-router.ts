@@ -5,8 +5,8 @@ export class CustomReuseStrategy implements RouteReuseStrategy {
         handlers: {[key: string]: DetachedRouteHandle} = {};
     
         shouldDetach(route: ActivatedRouteSnapshot): boolean {
-            console.debug('CustomReuseStrategy:shouldDetach', route);
-            return true;
+            if(route.data["shouldReuse"]) {return true;}
+            return false;
         }
     
         store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle): void {

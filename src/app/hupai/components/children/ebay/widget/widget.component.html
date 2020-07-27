@@ -1,6 +1,6 @@
 <div class="panel panel-{{widgetCfg.severity}}" [class.invisiable]="widgetCfg.hidden">
   <div class="panel-heading">
-    <ng-container [ngSwitch]="widgetCfg.contentSelector">
+    <ng-container [ngSwitch]="widgetCfg.type">
       <h4 *ngSwitchCase="'host'">Host Summary</h4>
       <h4 *ngSwitchCase="'getStart'">Get Started</h4>
       <h4 *ngSwitchCase="'db'">My DBs</h4>
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="panel-body" >
-    <div [ngSwitch]="widgetCfg.contentSelector">
+    <div [ngSwitch]="widgetCfg.type">
       <div app-host-widget *ngSwitchCase="'host'"></div>
       <div app-get-start-widget *ngSwitchCase="'getStart'"></div>
       <div app-db-widget *ngSwitchCase="'db'"></div>

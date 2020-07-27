@@ -24,6 +24,7 @@ import {
 
     OrderByPipePipe
 } from './index';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     imports: [
@@ -33,7 +34,7 @@ import {
         PaginationModule.forRoot(),
         SortableModule.forRoot(),
         RouterModule,
-        HttpModule,
+        HttpClientModule,
         HighchartsChartModule
     ],
     declarations: [

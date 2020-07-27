@@ -11,14 +11,10 @@ export class WidgetComponent implements OnInit {
   @Input() widgetCfg: any = {};
   @Input() editing;
 
-
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
-  setStyle(){
-    
-  }
+  setStyle(){  }
 
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { WidgetCfg } from '../../../../service/data.provider';
+import { WidgetCfg, DataProvider } from '../../../../service/data.provider';
+import { ActivatedRoute } from '@angular/router';
+
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,63 +11,42 @@ import { WidgetCfg } from '../../../../service/data.provider';
 })
 export class DashboardComponent implements OnInit {
 
-  editing:false;
+  editing: false;
+  defaultCfgSelected='';
 
-  leftWidgets: WidgetCfg[] = [{
-    severity: 'info',
-    titleColor: 'green',
-    contentSelector: 'host',
-    hidden:false
-  },{
-    severity: 'danger',
-    titleColor: 'green',
-    contentSelector: 'doc',
-    hidden:false
-  },{
-    severity: 'info',
-    titleColor: 'green',
-    contentSelector: 'getStart',
-    hidden:false
-  },{
-    severity: 'info',
-    titleColor: 'green',
-    contentSelector: 'monitor',
-    hidden:false
-  }];
+  defaultConfigs=[];
 
-  rightWidgets:WidgetCfg[] =[{
-    severity: 'success',
-    titleColor: 'green',
-    contentSelector: 'db',
-    hidden:false
-  },{
-    severity: 'info',
-    titleColor: 'green',
-    contentSelector: 'api',
-    hidden:false
-  },{
-    severity: 'warning',
-    titleColor: 'green',
-    contentSelector: 'domain',
-    hidden:false
-  },{
-    severity: 'success',
-    titleColor: 'green',
-    contentSelector: 'error',
-    hidden:false
-  }];
+  config: {
+    layout:{
+      leftWidgets: WidgetCfg[],
+      rightWidgets: WidgetCfg[]
+    },
+  };
 
-
-  itemStringsLeft: any[] = [
-    'Windstorm',
-    'Bombasto',
-    'Magneta',
-    'Tornado'
-  ];
-
-  constructor() { }
+  constructor(private dataService: DataProvider, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.defaultConfigs = this.dataService.globalWidgetCfgs;
+    let cfgId = this.route.snapshot.paramMap.get("cfgId");
+    this.dataService.loadConfig(cfgId).subscribe(config => {
+      this.config = config;
+    });
   }
 
+  saveConfig() {
+    this.dataService.saveConfig(this.config);
+  }
+
+  selectDefaultCfg(id){
+    var defaultCfg =  _.find(this.defaultConfigs,c=>c.id == id);
+    if(this.editing){
+      if(defaultCfg){
+        var cfg = _.omit(defaultCfg,'id','defaultConfig',name);
+        cfg.name = "copy of " + defaultCfg.name;
+        this.config = cfg;
+      }
+    } else {
+      this.config = defaultCfg;
+    }
+  }
 }

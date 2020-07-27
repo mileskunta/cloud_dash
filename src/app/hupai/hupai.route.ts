@@ -5,7 +5,8 @@ import {
 } from './index';
 
 const childRoutes: Routes = [
-  { path: 'dash', component: DashboardComponent },
+  { path: 'dash', component: DashboardComponent,data:{shouldReuse:false} },
+  { path: 'dash/:cfgId', component: DashboardComponent,data:{shouldReuse:false} },
   { path: '**', redirectTo: 'dash' }
 ];
 
